@@ -16,10 +16,10 @@ public class Provider {
     @GeneratedValue
     Long id;
 
-    private String providerName;
+    private String name;
 
     public Provider(String providerName) {
-        this.providerName = providerName;
+        this.name = providerName;
     }
 
     public Provider() {
