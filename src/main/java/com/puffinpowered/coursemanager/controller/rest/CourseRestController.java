@@ -1,4 +1,4 @@
-package com.puffinpowered.coursemanager.controller;
+package com.puffinpowered.coursemanager.controller.rest;
 
 import com.puffinpowered.coursemanager.domain.Course;
 import com.puffinpowered.coursemanager.service.CourseService;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by pshields on 7/04/2017.
  */
 @RestController
-@RequestMapping("/view")
-public class CourseController {
+@RequestMapping("/json/course")
+public class CourseRestController {
 
     @Autowired
     CourseService courseService;
