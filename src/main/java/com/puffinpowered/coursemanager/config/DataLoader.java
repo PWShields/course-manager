@@ -16,6 +16,7 @@
 package com.puffinpowered.coursemanager.config;
 
 import com.puffinpowered.coursemanager.domain.Course;
+import com.puffinpowered.coursemanager.domain.CourseStatus;
 import com.puffinpowered.coursemanager.domain.Provider;
 import com.puffinpowered.coursemanager.repository.CourseRepository;
 import com.puffinpowered.coursemanager.repository.ProviderRepository;
@@ -23,10 +24,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 /**
  *  Load some demonstration data at startup as we are using an in-memory database
  */
-//
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -44,7 +47,10 @@ public class DataLoader implements CommandLineRunner {
 	public void run(String... strings) throws Exception {
 		Provider udemy = new Provider("Udemy");
 		this.providerRepository.save(udemy);
-		this.courseRepository.save(new Course("Hibernate and Java Persistence API", udemy));
+		Course course = new Course("Hibernate and Java Persistence API", udemy);
+		course.setDatePurchased(LocalDate.of(2017, 2, 5));
+		course.setStatus(CourseStatus.PURCHASED);
+		course.setPurchasePrice(new BigDecimal(15));
+		this.courseRepository.save(course);
 	}
 }
-//
