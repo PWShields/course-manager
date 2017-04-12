@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.css}" rel="stylesheet"/>
+    <script th:src="@{/webjars/jquery/3.1.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" href="../static/css/blog.css" th:href="@{/css/style.css}"/>
+    <title>Course Manager</title>
+</head>
+<body>
+
+
+<div class="container">
+
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="/">
+                    <p>Course Manager</p></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar"> <!-- -->
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li class="dropdown">
+                        <button class="btn btn-default dropdown-toggle " data-toggle="dropdown" type="button">Manage
+                           Course Details
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li class="implemented"><a href="/view/courses">Story 1.1 - Display list of
+                                courses</a></li>
+                            <li class="implemented"><a href="/view/1">Story 1.2 - Display one course</a>
+                            </li>
+                            <li>Story 1.3 - Create a course</li>
+                            <li>Story 1.4 - Update a course</li>
+                            <li>Story 1.5 - Delete a course</li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <button class="btn btn-default dropdown-toggle " data-toggle="dropdown" type="button">Talk to
+                            other NLA Applications
+                            <span class="caret"></span></button>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+                            <div sec:authorize="isAnonymous()" class="login">
+                                <li ><a th:href="@{/login}"><span class="glyphicon glyphicon-log-in "></span> Login</a></li>
+                            </div>
+                            <div sec:authorize="isAuthenticated()" class="login">
+                                <span>Welcome </span> <span sec:authentication="name" />
+                                <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-log-out "></span> Logout</a></li>
+                            </div>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <hr/>
+    <div layout:fragment="content">
+    </div>
+
+    <footer>
+        <hr/>
+        <img th:src="@{/images/icon-small.png}" alt="Puffin Powered logo" class="img-rounded" width="10%" height="10%"/>
+        <p class="text-right">&copy; Copyright Puffin Powered Locomotive Studios 2017</p>
+    </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      layout:decorator="layouts/main" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+</head>
+<body>
+
+
+<div layout:fragment="content">
+    <hr/>
+    <h1 class="text-center">Course Manager</h1>
+    <hr/>
+    <div>
+        <img th:src="${image}" alt="Picture of a library building" class="img-responsive img-rounded center-block" />
+    </div>
+    <article>
+        <section>
+            <h2 class="text-left">Business Capability</h2>
+            <h4>Record courses enrolled in from multiple providers</h4>
+        </section>
+
+        <section>
+            <h2 class="text-left">Features</h2>
+            <h3 class="intro">1. Manage Course Details</h3>
+
+
+            <h3 class="intro">2. Manage Provider Details</h3>
+
+
+            <h3 class="intro">3. Manage Trainer Details</h3>
+
+
+            <h3 class="intro">4. Provide access to data as JSON</h3>
+
+            <h3 class="intro">5. Provide access to data as HAL-JSON</h3>
+        </section>
+    </article>
+    </div>
+</body>
+</html>
