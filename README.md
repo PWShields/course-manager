@@ -4,11 +4,9 @@ Store information about online courses from different providers so I don't buy t
 
 Includes examples of:
 
-1. Spring Rest Data providing HAL-JSON self-referential JSON, i.e the JSON contains a reference to the object it refers to. This has advantages for versioning and linking data. There is no need to define controllers and services, the endpoints are auto-discovered and made available following a defined convention based on the repositories defined. Note this prevents controller based paths from using the same path as the Rest data paths which by default are based on repository names, unless overridden withe @RepositoryRestResource annotation.
+1. Spring Rest Data providing HAL-JSON self-referential JSON, i.e the JSON contains a reference to the object it refers to. This has advantages for versioning and linking data. There is no need to define controllers and services, the endpoints are auto-discovered and made available based on the repositories defined. Note this prevents controller based paths from using the same path as the Rest data paths which by default are based on repository names, unless overridden with @RepositoryRestResource annotation.
 
-2. RestController JSON API
-
-This is a manually coded JSON response without the links of HAL. Using ../view/.. to avoid collision with REST Data urls.
+2. RestController JSON API. This is a manually coded JSON response without the links of HAL. Using ../view/.. to avoid collision with REST Data urls.
  
 
 
